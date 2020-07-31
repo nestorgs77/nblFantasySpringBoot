@@ -14,7 +14,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	   @Autowired
 	    private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
-	   
+	   // Statement of the spring config 
 	   @Override
 	    protected void configure(HttpSecurity http) throws Exception {
 
