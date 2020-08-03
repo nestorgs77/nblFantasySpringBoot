@@ -59,8 +59,6 @@ public class ClassicResource {
 	    classic.setPtosWCard(classicVo.getPtosWCard());
 	    classic.setPtosCapitan(classicVo.getPtosCapitan());
 	    classic.setPtosViceCapitan(classicVo.getPtosViceCapitan());
-	    classic.setRanking(classicVo.getRanking());
-	    classic.setFormacion(classicVo.getFormacion());
 	    classic.setCodigoLiga(classicVo.getCodigoLiga());
 	   return new ResponseEntity<>(this.classicService.create(classic), HttpStatus.CREATED);
 	
@@ -90,8 +88,6 @@ public class ClassicResource {
 	    classic.setPtosWCard(classicVo.getPtosWCard());
 	    classic.setPtosCapitan(classicVo.getPtosCapitan());
 	    classic.setPtosViceCapitan(classicVo.getPtosViceCapitan());
-	    classic.setRanking(classicVo.getRanking());
-	    classic.setFormacion(classicVo.getFormacion());
 	    classic.setCodigoLiga(classicVo.getCodigoLiga());
 	    
 	    

@@ -40,8 +40,6 @@ public class Classic  {
 	private int ptosWCard;
 	private int ptosCapitan;
 	private int ptosViceCapitan;
-    private int ranking;
-    private int formacion;
     private String codigoLiga; 
     
 	@ManyToOne(fetch = FetchType.LAZY)
