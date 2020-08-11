@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
+
 public class ClassicRestApi {
 
 	
@@ -14,6 +15,8 @@ public class ClassicRestApi {
 	
 	public ClassicRestApi() {
 		super();
+		
+		
 	} 
 	
 	

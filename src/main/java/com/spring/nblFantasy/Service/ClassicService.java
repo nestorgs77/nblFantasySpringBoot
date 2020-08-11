@@ -56,6 +56,7 @@ public void deleteIdClassic(Classic classic) {
 	 this.classicRepo.delete(classic);;
 	
 }
+
 public List<Classic> findAllClassic() {
 	return this.classicRepo.findAll();
 	

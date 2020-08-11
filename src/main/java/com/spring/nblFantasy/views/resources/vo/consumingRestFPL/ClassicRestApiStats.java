@@ -7,7 +7,8 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ClassicRestApiStats {
-
+    private int id ;
+    private int minutes ;
 	private int goals_scored ;
 	private int assists ;
 	private int clean_sheets;

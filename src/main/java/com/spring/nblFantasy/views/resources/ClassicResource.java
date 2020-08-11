@@ -30,7 +30,6 @@ import io.swagger.annotations.ApiResponses;
  *Cretaing the rest service for Classic
  */
 @RestController
-@RequestMapping("/api/classic")
 @Api(tags="cliente")
 public class ClassicResource {
 
@@ -107,13 +106,14 @@ public class ClassicResource {
 	
 	}
 	
-	@GetMapping
+	@GetMapping("/api/classic")
 	@ApiOperation(value="List of Classic", notes ="Service to list all of classic")
 	@ApiResponses(value = {@ApiResponse (code =201 , message ="List of Classic founded "), 
 			@ApiResponse (code =404 , message= "List of classic not founded")   })
 	public List<Classic> findAllClassic (){
 		return this.classicService.findAllClassic();
 		
-	} 
+	}
+	
 		
 }

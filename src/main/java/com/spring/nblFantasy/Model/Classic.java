@@ -14,6 +14,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 /**
@@ -21,6 +24,7 @@ import lombok.Data;
  *
  */
 @Data
+
 @Table(name = "classic")
 @Entity
 public class Classic  {
@@ -41,11 +45,11 @@ public class Classic  {
 	private int ptosCapitan;
 	private int ptosViceCapitan;
     private String codigoLiga; 
-    
+    @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_jugador", nullable = false)
 	private Jugador jugadorclassic;
-
+    @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_liga", nullable = false)
 	private Ligas ligas;
