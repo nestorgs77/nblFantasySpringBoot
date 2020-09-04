@@ -17,13 +17,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	   // Statement of the spring config 
 	   @Override
 	    protected void configure(HttpSecurity http) throws Exception {
-
-	        http.
-	                authorizeRequests()
+		  
+		      
+	        http.   
+	        csrf().disable()
+	                .authorizeRequests()
 	                .antMatchers("/").permitAll()
 	                .antMatchers("/login").permitAll()
-	                .antMatchers("/registration").permitAll();
-	            
+	                .antMatchers("/registration").permitAll()
+	                .antMatchers("/api/nuevo").permitAll();
 	    }
 	   @Override
 	    public void configure(WebSecurity web) throws Exception {
@@ -32,5 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	                .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**", "/images/**");
 	        
 	    }
+	   
+	  
+	   
 	   
 }

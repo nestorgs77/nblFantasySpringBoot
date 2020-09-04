@@ -48,14 +48,12 @@ public void delete (Classic classic) {
 }
 // Method to find a Classic Day by Id 
 	
-public Classic findIdClassic(int idligaclassic) {
-	return this.classicRepo.findIdClassic(idligaclassic);
+public Classic findIdClassic(int identification) {
+	return this.classicRepo.findIdClassic(identification);
 	
 }
-public void deleteIdClassic(Classic classic) {
-	 this.classicRepo.delete(classic);;
-	
-}
+
+
 
 public List<Classic> findAllClassic() {
 	return this.classicRepo.findAll();

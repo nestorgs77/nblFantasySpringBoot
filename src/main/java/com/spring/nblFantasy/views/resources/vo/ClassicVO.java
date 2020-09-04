@@ -26,21 +26,28 @@ import lombok.Data;
 @Data
 public class ClassicVO  {
 
-	
 	private int idclassic;
-	private int numJornada ;
-	private int golesJornada;
-	private int assistJornada;
-	private int redCardJornada;
-	private int csheetJornada;
-	private int ptosJornada;
-	private int bpsJornada;
-	private int ptosenBanco;
-	private int ptosBBoost;
-	private int ptosWCard;
-	private int ptosCapitan;
-	private int ptosViceCapitan;
-    private String codigoLiga; 
+	private int idplayer ;
+	private int gameweek;
+    private int minutes ;
+	private int goals_scored ;
+	private int assists ;
+	private int clean_sheets;
+	private int goal_conceded ;
+	private int own_goals ;
+	private int penalties_saved;
+	private int penalties_missed;
+	private int yellow_cards ;
+	private int red_cards ; 
+	private int saves ;
+	private int bonus ;
+	private int bps ;
+	private float influence;
+	private float creativity;
+	private float threat ;
+	private float ict_index;
+	private int total_points;
+	private boolean in_dreamteam;
     
 	
 	

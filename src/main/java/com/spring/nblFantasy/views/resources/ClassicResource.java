@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.nblFantasy.Model.Classic;
+import com.spring.nblFantasy.Model.Jugador;
+import com.spring.nblFantasy.Model.Ligas;
 import com.spring.nblFantasy.Service.ClassicService;
 import com.spring.nblFantasy.views.resources.vo.ClassicVO;
 
@@ -25,12 +27,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
+
 /**
  * @author Owner
  *Cretaing the rest service for Classic
  */
 @RestController
 @Api(tags="cliente")
+
 public class ClassicResource {
 
 	public final ClassicService classicService ;
@@ -45,20 +49,33 @@ public class ClassicResource {
 			@ApiResponse (code =400 , message= "Invalid Request")   })
 	public ResponseEntity<Classic> createClassic (@RequestBody ClassicVO classicVo){
 		Classic classic = new Classic();
-		classic.setIdclassic(classicVo.getIdclassic());
-		classic.setNumJornada(classicVo.getNumJornada());
-		classic.setGolesJornada(classicVo.getGolesJornada());
-	    classic.setAssistJornada(classicVo.getAssistJornada());
-	    classic.setRedCardJornada(classicVo.getRedCardJornada());
-	    classic.setCsheetJornada(classicVo.getCsheetJornada());
-	    classic.setPtosJornada(classicVo.getPtosJornada());
-	    classic.setBpsJornada(classicVo.getBpsJornada());
-	    classic.setPtosenBanco(classicVo.getPtosenBanco());
-	    classic.setPtosBBoost(classicVo.getPtosBBoost());
-	    classic.setPtosWCard(classicVo.getPtosWCard());
-	    classic.setPtosCapitan(classicVo.getPtosCapitan());
-	    classic.setPtosViceCapitan(classicVo.getPtosViceCapitan());
-	    classic.setCodigoLiga(classicVo.getCodigoLiga());
+		Jugador jugador = new Jugador();
+		Ligas ligas = new Ligas();
+		classic.setAssists(classicVo.getAssists());
+		classic.setBonus(classicVo.getBonus());
+		classic.setBps(classicVo.getBps());
+		classic.setClean_sheets(classicVo.getClean_sheets());
+		classic.setCreativity(classicVo.getCreativity());
+		classic.setGameweek(classicVo.getGameweek());
+		classic.setGoal_conceded(classicVo.getGoal_conceded());
+		classic.setGoals_scored(classicVo.getGoals_scored());
+		classic.setIct_index(classicVo.getIct_index());
+		classic.setIn_dreamteam(classicVo.isIn_dreamteam());
+		classic.setInfluence(classicVo.getInfluence());
+		classic.setJugadorclassic(jugador);
+		classic.setLigas(ligas);
+		classic.setMinutes(classicVo.getMinutes());
+		classic.setOwn_goals(classicVo.getOwn_goals());
+		classic.setPenalties_missed(classicVo.getPenalties_missed());
+		classic.setPenalties_saved(classicVo.getPenalties_saved());
+		classic.setRed_cards(classicVo.getRed_cards());
+		classic.setSaves(classicVo.getSaves());
+		classic.setThreat(classicVo.getThreat());
+		classic.setYellow_cards(classicVo.getYellow_cards());
+		classic.setTotal_points(classicVo.getTotal_points());
+		
+		
+		
 	   return new ResponseEntity<>(this.classicService.create(classic), HttpStatus.CREATED);
 	
 	}
@@ -74,46 +91,63 @@ public class ClassicResource {
 		}
 		
 		else {
-		classic.setIdclassic(classicVo.getIdclassic());
-		classic.setNumJornada(classicVo.getNumJornada());
-		classic.setGolesJornada(classicVo.getGolesJornada());
-	    classic.setAssistJornada(classicVo.getAssistJornada());
-	    classic.setRedCardJornada(classicVo.getRedCardJornada());
-	    classic.setCsheetJornada(classicVo.getCsheetJornada());
-	    classic.setPtosJornada(classicVo.getPtosJornada());
-	    classic.setBpsJornada(classicVo.getBpsJornada());
-	    classic.setPtosenBanco(classicVo.getPtosenBanco());
-	    classic.setPtosBBoost(classicVo.getPtosBBoost());
-	    classic.setPtosWCard(classicVo.getPtosWCard());
-	    classic.setPtosCapitan(classicVo.getPtosCapitan());
-	    classic.setPtosViceCapitan(classicVo.getPtosViceCapitan());
-	    classic.setCodigoLiga(classicVo.getCodigoLiga());
+			
+			Jugador jugador = new Jugador();
+			Ligas ligas = new Ligas();
+			classic.setAssists(classicVo.getAssists());
+			classic.setBonus(classicVo.getBonus());
+			classic.setBps(classicVo.getBps());
+			classic.setClean_sheets(classicVo.getClean_sheets());
+			classic.setCreativity(classicVo.getCreativity());
+			classic.setGameweek(classicVo.getGameweek());
+			classic.setGoal_conceded(classicVo.getGoal_conceded());
+			classic.setGoals_scored(classicVo.getGoals_scored());
+			classic.setIct_index(classicVo.getIct_index());
+			classic.setIn_dreamteam(classicVo.isIn_dreamteam());
+			classic.setInfluence(classicVo.getInfluence());
+			classic.setJugadorclassic(jugador);
+			classic.setLigas(ligas);
+			classic.setMinutes(classicVo.getMinutes());
+			classic.setOwn_goals(classicVo.getOwn_goals());
+			classic.setPenalties_missed(classicVo.getPenalties_missed());
+			classic.setPenalties_saved(classicVo.getPenalties_saved());
+			classic.setRed_cards(classicVo.getRed_cards());
+			classic.setSaves(classicVo.getSaves());
+			classic.setThreat(classicVo.getThreat());
+			classic.setYellow_cards(classicVo.getYellow_cards());
+			classic.setTotal_points(classicVo.getTotal_points());
+			
 	    
 	    
 	   return new ResponseEntity<>(this.classicService.update(classic), HttpStatus.OK);
 		}
 	}
+	
+	
+	
 	//Usamos la anotacion deletemapping  para remover un elemento de la tabla 
-	@DeleteMapping("/{identification}")
+	@DeleteMapping("/api/classic/{identification}")
 	@ApiOperation(value="Removing Classic", notes ="Service to remove a classic")
 	@ApiResponses(value = {@ApiResponse (code =201 , message ="Classic removed successfully "), 
 			@ApiResponse (code =404 , message= "Classic not Founded")   })
-	public void removeClassic(@PathVariable ("identification") int identification) {
+	public void removeClassic(@PathVariable int identification) {
 	 Classic classic = this.classicService.findIdClassic(identification);
 	if (classic != null ) {
-	     this.classicService.deleteIdClassic(classic);	
+	     this.classicService.delete(classic);
 	}
 	
 	}
 	
-	@GetMapping("/api/classic")
+
+	
+	@GetMapping("api/classic")
 	@ApiOperation(value="List of Classic", notes ="Service to list all of classic")
 	@ApiResponses(value = {@ApiResponse (code =201 , message ="List of Classic founded "), 
 			@ApiResponse (code =404 , message= "List of classic not founded")   })
 	public List<Classic> findAllClassic (){
 		return this.classicService.findAllClassic();
 		
-	}
+	} 
 	
 		
 }

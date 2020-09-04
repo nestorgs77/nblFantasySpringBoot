@@ -16,7 +16,9 @@ import com.spring.nblFantasy.Model.Classic;
  *
  */
 public interface ClassicRepository extends JpaRepository<Classic, Integer> {
-@Query("Select c from Classic c where c.idclassic =: idligaclassic")
-	public Classic findIdClassic (@Param("idligaclassic") int idligaclassic);
+
+	
+	@Query("Select c from Classic c where c.idclassic= :identification")
+	public Classic findIdClassic (@Param("identification") int identification);
 	
 }

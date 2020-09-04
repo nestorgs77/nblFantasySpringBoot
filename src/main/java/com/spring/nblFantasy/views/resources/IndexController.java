@@ -1,148 +1,69 @@
 package com.spring.nblFantasy.views.resources;
 
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.util.UriComponentsBuilder;
 
-import com.spring.nblFantasy.views.resources.vo.ClassicVO;
-import com.spring.nblFantasy.views.resources.vo.consumingRestFPL.ClassicRestApiStats;
+import com.spring.nblFantasy.Model.Classic;
+import com.spring.nblFantasy.Service.FPLApi;
 
 @Controller
 public class IndexController {
 	@Autowired
 	private ClassicResource classicRest ;
-	
-	
-	
-@GetMapping("/")
+	@Autowired
+	RestTemplate restTemplate ;
+	@Autowired
+	private FPLApi fplApi ;
+@GetMapping("/index")
 	public String Index (Model model) {
-   LinkedList<Object> listPtos = new LinkedList<>();
-   LinkedList<Object> numJornada = new LinkedList<>();
-	 for (int i = 0 ; i<classicRest.findAllClassic().size(); i++) {
-		   listPtos.add(classicRest.findAllClassic().get(i).getPtosJornada());
-		   numJornada.add(classicRest.findAllClassic().get(i).getNumJornada());
-	 }
+     List<Classic> listaClassic = classicRest.findAllClassic();
+     List<Integer>listPtos = new LinkedList<>();
 	
-	model.addAttribute("listClassic", classicRest.findAllClassic());
+	for (int i = 0; i < listaClassic.size(); i++) {
+		listPtos.add(listaClassic.get(i).getTotal_points());
+	}
+	
+	
+	
+	
+	model.addAttribute("listClassic", listaClassic);
 	model.addAttribute("listPJornada", listPtos);
-	model.addAttribute("numJornada", numJornada);
+	
 		return "index" ;
 	}
 
-@GetMapping("/rest")
-public String getForObjectOperation(Model model) {
-	RestTemplate restTemplate = new RestTemplate();
-	String url = "https://fantasy.premierleague.com/api/event/3/live/";
-	HttpHeaders headers = new HttpHeaders();
-	headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
-	
-	UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(url).queryParam("id", 14);
-	      
-	        	
-	HttpEntity<String> entity = new HttpEntity<>(headers);
+@PostMapping("/index")
+public String createIndex (@RequestParam(value = "idplayer", required = true) String idplayer , Model model){
 	
 	
 	
-	HttpEntity<String> response = restTemplate.exchange(
-	        builder.toUriString(), 
-	        HttpMethod.GET, 
-	        entity, 
-	        String.class);
+	model.addAttribute("myjson", idplayer);
+	return "classic" ;
 
-     
-	   if (response != null) {
-        
-           // parsing JSON
-           JSONObject result = new JSONObject(response.getBody()); //Convert String to JSON Object
-
-             JSONArray tokenList = result.getJSONArray("elements");
-            
-            
-             
-             ClassicRestApiStats classic = new ClassicRestApiStats() ;           
-List<ClassicRestApiStats> lista = new ArrayList<>();
-             
-             for (int i = 0; i < tokenList.length(); i++) {
-				if (tokenList.getJSONObject(i).getInt("id")== 14) {
-					 JSONObject oj = tokenList.getJSONObject(i);
-					 JSONObject stats = oj.getJSONObject("stats");
-					
-					    int id = oj.getInt("id"); 
-			            int minutes = stats.getInt("minutes");
-			            int goals_scored =stats.getInt("goals_scored");
-			            int assists =stats.getInt("assists");
-			            int clean_sheets = stats.getInt("clean_sheets");
-			            int goals_conceded = stats.getInt("goals_conceded");
-			        	int own_goals =stats.getInt("own_goals");
-			        	int penalties_saved =stats.getInt("penalties_saved");
-			        	 int penalties_missed= stats.getInt("penalties_missed");
-			        	 int yellow_cards =stats.getInt("yellow_cards");
-			        	 int red_cards=stats.getInt("red_cards") ; 
-			        	 int saves =stats.getInt("saves");
-			        	 int bonus =stats.getInt("bonus");
-			        	 int bps =stats.getInt("bps");
-			        	 float influence =stats.getFloat("influence");
-			        	 float creativity = stats.getFloat("creativity");
-			        	 float threat =stats.getFloat("threat");
-			        	 float ict_index =stats.getFloat("ict_index");
-			        	 int total_points = stats.getInt("total_points");
-			        	 boolean in_dreamteam = stats.getBoolean("in_dreamteam");
-			            
-					
-					classic.setId(id);;
-					classic.setMinutes(minutes);;
-					classic.setGoals_scored(goals_scored);
-					classic.setAssists(assists);
-					classic.setClean_sheets(clean_sheets);
-					classic.setGoal_conceded(goals_conceded);
-					classic.setOwn_goals(own_goals);
-					classic.setPenalties_saved(penalties_saved);
-					classic.setPenalties_missed(penalties_missed);
-					classic.setYellow_cards(yellow_cards);
-					classic.setRed_cards(red_cards);
-					classic.setSaves(saves);
-					classic.setBonus(bonus);
-					classic.setBps(bps);
-					classic.setInfluence(influence);
-					classic.setCreativity(creativity);
-					classic.setThreat(threat);
-					classic.setIct_index(ict_index);
-					classic.setTotal_points(total_points);
-					classic.setIn_dreamteam(in_dreamteam);
-					
-					lista.add(classic);
-					
-					 model.addAttribute("myjson", lista);
-			            return "classic";
-				}
-            	 
-            	 
-			}
-             
-             
-             
-            
-            
-            
-	   }
-	  
-       return "error";
-	
 }
 
+
+
+
+
+@GetMapping("/rest")
+public String getForObjectOperation(Model model) throws Exception{
+      
 	
+model.addAttribute("myjson", fplApi.listOfPlayerbyGW(1, 54078));
+return "classic" ;
+	
+
+
+}
+
 }

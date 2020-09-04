@@ -33,13 +33,14 @@ public class Jugador  {
 	private String nombre ; 
 	private String apellidos ;
 	private String apodo ; 
+	private String idfpl ; 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadorclassic")
     private List<Classic> listaLigaClassic;
 	   
 
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadordraft")
-    private List<Draft> listaLigaDraft;
+     private List<Draft> listaLigaDraft;
 	
 	
 	
