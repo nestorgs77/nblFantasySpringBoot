@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.spring.nblFantasy.Model.Classic;
 import com.spring.nblFantasy.Model.Jugador;
-import com.spring.nblFantasy.Model.Ligas;
+
 import com.spring.nblFantasy.Service.ClassicService;
 import com.spring.nblFantasy.views.resources.vo.ClassicVO;
 
@@ -50,7 +50,7 @@ public class ClassicResource {
 	public ResponseEntity<Classic> createClassic (@RequestBody ClassicVO classicVo){
 		Classic classic = new Classic();
 		Jugador jugador = new Jugador();
-		Ligas ligas = new Ligas();
+		
 		classic.setAssists(classicVo.getAssists());
 		classic.setBonus(classicVo.getBonus());
 		classic.setBps(classicVo.getBps());
@@ -60,10 +60,8 @@ public class ClassicResource {
 		classic.setGoal_conceded(classicVo.getGoal_conceded());
 		classic.setGoals_scored(classicVo.getGoals_scored());
 		classic.setIct_index(classicVo.getIct_index());
-		classic.setIn_dreamteam(classicVo.isIn_dreamteam());
 		classic.setInfluence(classicVo.getInfluence());
 		classic.setJugadorclassic(jugador);
-		classic.setLigas(ligas);
 		classic.setMinutes(classicVo.getMinutes());
 		classic.setOwn_goals(classicVo.getOwn_goals());
 		classic.setPenalties_missed(classicVo.getPenalties_missed());
@@ -93,7 +91,7 @@ public class ClassicResource {
 		else {
 			
 			Jugador jugador = new Jugador();
-			Ligas ligas = new Ligas();
+			
 			classic.setAssists(classicVo.getAssists());
 			classic.setBonus(classicVo.getBonus());
 			classic.setBps(classicVo.getBps());
@@ -103,10 +101,8 @@ public class ClassicResource {
 			classic.setGoal_conceded(classicVo.getGoal_conceded());
 			classic.setGoals_scored(classicVo.getGoals_scored());
 			classic.setIct_index(classicVo.getIct_index());
-			classic.setIn_dreamteam(classicVo.isIn_dreamteam());
 			classic.setInfluence(classicVo.getInfluence());
 			classic.setJugadorclassic(jugador);
-			classic.setLigas(ligas);
 			classic.setMinutes(classicVo.getMinutes());
 			classic.setOwn_goals(classicVo.getOwn_goals());
 			classic.setPenalties_missed(classicVo.getPenalties_missed());

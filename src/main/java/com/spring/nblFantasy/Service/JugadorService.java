@@ -1,5 +1,7 @@
 package com.spring.nblFantasy.Service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,13 @@ public class JugadorService {
 	return	this.jugadorRepo.findJugadorbyIdFpl(idfpl);
 		
 	}
+	@Transactional
+	public List<Jugador> listAllJugador () {
+		
+	return	jugadorRepo.findAll();
+		
+	}
+	
 	@Transactional
 	public int saveJugador (Jugador jugador) {
 		Jugador j = new Jugador();

@@ -13,7 +13,7 @@ public class PlayerVO {
 	private String nombre ; 
 	private String apellidos ;
 	private String apodo ; 
-	private String idfpl ; 
+	private int idfpl ; 
 	
 	
 }

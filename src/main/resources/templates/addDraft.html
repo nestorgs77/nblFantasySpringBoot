@@ -18,7 +18,7 @@
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="/css/draft.css">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script type="text/javascript" src="/script/draft.js"></script>
 </head>
 <body>
 
@@ -27,122 +27,198 @@
    
    
    <!-- Default form register -->
-<form class="text-center border border-light p-5" action="#!">
+<form class="text-center border border-light p-5"  action="#" th:action="@{/addsquaddraft}" th:object="${p}" method="post">
 
     <p class="h4 mb-4">DRAFT GAMEWEEK SQUAD</p>
 
 <div class="row m-1 col-sm-12 col-md-3 ">
          <label class="mr-1">SELECT FANTASY PLAYER</label>
-         <select class="form-control mr-1">
+         <select class="form-control mr-1" th:name="players" id="players">
+          <option value = "" >Select Player</option>
+          <option  th:each="players : ${listplayers}" th:value="${players.idfpl}" th:text="${players.apodo}"></option>
          </select>
          </div>
-
-    <div class="form-row   d-flex">
+<div class="row m-1 col-sm-12 col-md-3 ">
+         <label class="mr-1">SELECT GAMEWEEK</label>
+         <select class="form-control mr-1" th:name="gameweek" id="gameweek">
+          <option value = "" >Select Player</option>
+          <option  th:each="gameweek : ${gameweek}" th:value="${gameweek}" th:text="${gameweek}"></option>
+         </select>
+         </div>
+    <div class="form-row d-flex" >
          
          <div class="row m-2 col-sm-12 col-md-3 ">
          <label class="mr-1">PLAYER 1</label>
-         <select class="form-control mr-1" id="teams" th:field="*{teams}" >
+         <select class="form-control mr-1" id="teams1" >
          <option value = "" >Select Team</option>
 <option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
          </select>
-          <select name="player1" id="player1" class="form-control mr-1" th:field="*{player1}">
+          <select name="player1" id="player1" class="form-control mr-1" th:value="*{player1}">
           <option value="0">--</option>
           </select>
          </div>
          
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams2"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player2" id="player2" class="form-control mr-1" th:value="*{player2}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams3"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player3" id="player3" class="form-control mr-1" th:value="*{player3}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams4"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player4" id="player4" class="form-control mr-1" th:value="*{player4}">
+          <option value="0">--</option>
+          </select>
+         </div>
           
-         <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 2</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
+          
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams5"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player5" id="player5" class="form-control mr-1" th:value="*{player5}">
+          <option value="0">--</option>
+          </select>
+         </div>
+          
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams6"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player6" id="player6" class="form-control mr-1" th:value="*{player6}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams7"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player7" id="player7" class="form-control mr-1" th:value="*{player7}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams8"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player8" id="player8" class="form-control mr-1" th:value="*{player8}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams9" >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player9" id="player9" class="form-control mr-1" th:value="*{player9}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams10" >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player10" id="player10" class="form-control mr-1" th:value="*{player10}">
+          <option value="0">--</option>
+          </select>
+         </div>
+          
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams11"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player11" id="player11" class="form-control mr-1" th:value="*{player11}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams12"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player12" id="player12" class="form-control mr-1" th:value="*{player12}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+         <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams13"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player13" id="player13" class="form-control mr-1" th:value="*{player13}">
+          <option value="0">--</option>
+          </select>
+         </div>
+         
+          <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams14"  >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player14" id="player14" class="form-control mr-1" th:value="*{player14}">
+          <option value="0">--</option>
+          </select>
+         </div>
+          
+        <div class="row m-2 col-sm-12 col-md-3 ">
+         <label class="mr-1">PLAYER 1</label>
+         <select class="form-control mr-1" id="teams15" >
+         <option value = "" >Select Team</option>
+<option  th:each="teams : ${teams}" th:value="${teams.value}" th:text="${teams.key}"></option>
+         </select>
+          <select name="player15" id="player15" class="form-control mr-1" th:value="*{player15}">
+          <option value="0">--</option>
+          </select>
          </div>
         
-         <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 3</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 4</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 5</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 6</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 7</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 8</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 9</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 10</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 11</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 12</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 13</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 14</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
-         
-         
-          <div class="row m-2 col-sm-12 col-md-3">
-         <label class="mr-1">PLAYER 15</label>
-         <select class="form-control mr-1"></select>
-          <select class="form-control mr-1"></select>
-         </div>
     </div>
 
 
     <!-- Sign up button -->
-    <button class="btn btn-info my-4 btn-block  w-25" type="submit">Sign in</button>
+    <button class="btn btn-info my-4 btn-block  w-25" type="submit">Send Squad</button>
 
   
 </form>
@@ -176,31 +252,6 @@
 		
 		
 		
-		<script type="text/javascript">
-		
-		
-		function sendAjaxRequest() {
-		    var teams = $("#teams").val();
-		    jQuery.get( "/players?teams=" + teams, function( data ) {
-		        jQuery("#player1").empty();
-		        data.forEach(function(item, i) {
-		            var option = "<option value = " + item + ">" + item +  "</option>";
-		            jQuery("#player1").append(option);
-		        });
-		    });
-		};
-		
-		
-		jQuery(document).ready(function() {
-			jQuery("#teams").change(function() {
-		        sendAjaxRequest();
-		    });
-		});
-		
-		
-	
-		
-		</script>
 		
 </body>
 </html>

@@ -25,24 +25,37 @@ public class Draft {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="iddraft")
 	private int iddraft;
-	private int golesJornada; 
-	private int assistJornada ;
-	private int redCardJornada ;
-	private int csheetJornada ;
-	private int bpsJornada ;
-	private int ptosenBanco;
-	private int waivers ;
-	private int ranking;
-	private int trades ; 
+	private int gameweek;
+    private int minutes ;
+	private int goals_scored ;
+	private int assists ;
+	private int clean_sheets;
+	private int goal_conceded ;
+	private int own_goals ;
+	private int penalties_saved;
+	private int penalties_missed;
+	private int yellow_cards ;
+	private int red_cards ; 
+	private int saves ;
+	private int bonus ;
+	private int bps ;
+	private float influence;
+	private float creativity;
+	private float threat ;
+	private float ict_index;
+	private int total_points;
+	private int season ;
+	private int benchpoints ;
+	private int benchgoals ; 
+	private int benchassists ;
+	private int benchcleansheets ;
 
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_jugador", nullable = false)
 	private Jugador jugadordraft;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_ligas", nullable = false)
-	private Ligas ligas;
+	
 
 	
 	public Draft() {

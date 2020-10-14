@@ -24,7 +24,7 @@ public class JugadorController {
            j.setNombre(p.getNombre());
            j.setApellidos(p.getApellidos());
            j.setApodo(p.getApodo());
-           j.setIdfpl(p.getIdfpl());
+           j.setIdfpl(p.getIdfpl());;
 		
           int resp =  jugador.saveJugador(j);
            

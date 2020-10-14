@@ -32,7 +32,6 @@ public class Classic  {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idclassic;
-	private int idplayer ;
 	private int gameweek;
     private int minutes ;
 	private int goals_scored ;
@@ -52,15 +51,17 @@ public class Classic  {
 	private float threat ;
 	private float ict_index;
 	private int total_points;
-	private boolean in_dreamteam;
+	private int season ;
+	private int benchpoints ;
+	private int benchgoals ; 
+	private int benchassists ;
+	private int benchcleansheets ;
+	
     @JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_jugador", nullable = false)
 	private Jugador jugadorclassic;
-    @JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "id_liga", nullable = false)
-	private Ligas ligas;
+   
 	
 	public Classic() {
 		super();

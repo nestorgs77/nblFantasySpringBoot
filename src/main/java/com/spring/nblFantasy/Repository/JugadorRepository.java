@@ -16,7 +16,7 @@ import com.spring.nblFantasy.Model.Jugador;
  */
 public interface JugadorRepository extends JpaRepository<Jugador, Integer>{
 
-	@Query("Select c from Jugador c where c.idfpl =: idfpl")
+	@Query("Select c from Jugador c where c.idfpl = :idfpl")
 	public Jugador findJugadorbyIdFpl (@Param("idfpl") int idfpl);
 	
 	

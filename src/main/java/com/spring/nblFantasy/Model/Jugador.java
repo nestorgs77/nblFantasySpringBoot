@@ -33,7 +33,7 @@ public class Jugador  {
 	private String nombre ; 
 	private String apellidos ;
 	private String apodo ; 
-	private String idfpl ; 
+	private int idfpl ; 
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadorclassic")
     private List<Classic> listaLigaClassic;
@@ -42,6 +42,11 @@ public class Jugador  {
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadordraft")
      private List<Draft> listaLigaDraft;
 	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadordraftsquad")
+    private List< DraftSquad> listaDraftSquad;
+	
+	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.LAZY, mappedBy="jugadorclassicsquad")
+    private List< ClassicSquad> listaClassicSquad;
 	
 	
 	public Jugador() {

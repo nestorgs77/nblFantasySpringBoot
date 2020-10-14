@@ -1,13 +1,13 @@
 package com.spring.nblFantasy.views.resources.vo.consumingRestFPL;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import lombok.Data;
 
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class ClassicRestApiStats {
-    
+public class DraftRestApiStats {
+
+	public DraftRestApiStats() {
+		super();
+	}
 	private int id ;
 	private String apodo ;
     private int minutes ;
@@ -32,12 +32,5 @@ public class ClassicRestApiStats {
 	private int benchgoals ; 
 	private int benchassists ;
 	private int benchcleansheets ;
-	
-	
-	
-	public ClassicRestApiStats() {
-		super();
-	}
-	
 	
 }

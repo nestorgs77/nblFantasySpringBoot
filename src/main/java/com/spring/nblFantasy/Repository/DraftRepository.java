@@ -17,8 +17,13 @@ import com.spring.nblFantasy.Model.Draft;
  * @author Owner
  *
  */
+
 public interface DraftRepository extends JpaRepository<Draft, Integer>{
 
-	@Query("Select d from Draft d where d.iddraft =: idligadraft")
+	@Query("Select d from Draft d where d.iddraft=  :idligadraft")
 	public List<Draft> findIdDraft (@Param("idligadraft") int idligadraft);
+
+	
+
+
 }

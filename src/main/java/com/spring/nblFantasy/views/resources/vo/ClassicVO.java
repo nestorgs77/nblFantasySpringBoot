@@ -15,7 +15,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 import com.spring.nblFantasy.Model.Jugador;
-import com.spring.nblFantasy.Model.Ligas;
+
 
 import lombok.Data;
 
